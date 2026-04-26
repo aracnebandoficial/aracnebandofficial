@@ -8,220 +8,194 @@
 <style>
 body {
     margin: 0;
-    background: #050505;
+    background: #121212;
     color: #e6e6e6;
-    font-family: 'Orbitron', sans-serif;
-    overflow-x: hidden;
+    font-family: Arial, sans-serif;
 }
 
-/* ===== HERO ===== */
-header {
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    background: radial-gradient(circle at top, #1a001f, #000 70%);
-    position: relative;
+/* ===== BUSCADOR ===== */
+.search-bar {
+    position: sticky;
+    top: 0;
+    background: #1f1f1f;
+    padding: 10px;
+    z-index: 10;
 }
 
-header::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: url('https://images.unsplash.com/photo-1511379938547-c1f69419868d') center/cover;
-    opacity: 0.08;
-    filter: blur(2px);
-}
-
-h1 {
-    font-family: 'Cinzel', serif;
-    font-size: 5rem;
-    color: #c000ff;
-    text-shadow: 0 0 25px #ff00ff;
-    z-index: 2;
-    animation: glow 3s infinite alternate;
-}
-
-@keyframes glow {
-    from { text-shadow: 0 0 10px #a000ff; }
-    to { text-shadow: 0 0 35px #ff00ff; }
-}
-
-.hero-text {
-    z-index: 2;
-    max-width: 600px;
-}
-
-.hero-text p {
-    opacity: 0.8;
-}
-
-/* ===== BOTONES ===== */
-.btns {
-    margin-top: 20px;
-    z-index: 2;
-}
-
-.btns a {
-    margin: 10px;
-    padding: 12px 22px;
-    border: 1px solid #c000ff;
+.search-bar input {
+    width: 100%;
+    padding: 10px 15px;
+    border-radius: 25px;
+    border: none;
+    background: #2a2a2a;
     color: #fff;
-    text-decoration: none;
-    transition: 0.3s;
-    display: inline-block;
 }
 
-.btns a:hover {
-    background: #c000ff;
-    box-shadow: 0 0 15px #ff00ff;
-    transform: scale(1.05);
-}
-
-/* ===== SECCIONES ===== */
-.section {
-    padding: 80px 20px;
-    text-align: center;
-}
-
-.section h2 {
-    font-family: 'Cinzel', serif;
-    font-size: 2.5rem;
-    color: #c000ff;
-    margin-bottom: 40px;
-}
-
-/* ===== MIEMBROS ===== */
-.members {
+/* ===== GRID ===== */
+.grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 25px;
-    max-width: 1000px;
-    margin: auto;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 12px;
+    padding: 12px;
 }
 
+/* ===== CARD ===== */
 .card {
-    background: rgba(26,0,31,0.7);
-    padding: 20px;
-    border: 1px solid #c000ff;
-    transition: 0.4s;
-    backdrop-filter: blur(6px);
+    background: #1a1a1a;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: 0.3s;
 }
 
 .card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 0 20px #c000ff;
+    transform: scale(1.03);
 }
 
 .card img {
     width: 100%;
-    filter: grayscale(100%);
-    transition: 0.4s;
+    height: 120px;
+    object-fit: cover;
 }
 
-.card:hover img {
-    filter: grayscale(0%);
+.card-content {
+    padding: 8px;
 }
 
-/* ===== TIMELINE ===== */
-.timeline img {
-    width: 90%;
-    max-width: 900px;
-    border: 2px solid #c000ff;
-    box-shadow: 0 0 25px #c000ff;
+.card-title {
+    font-size: 13px;
+    margin: 0;
 }
 
-/* ===== SPOTIFY ===== */
-.spotify {
-    display: flex;
-    justify-content: center;
+.card-source {
+    font-size: 11px;
+    color: #aaa;
 }
 
-/* ===== FOOTER ===== */
-footer {
-    padding: 30px;
-    text-align: center;
-    background: #000;
-    border-top: 1px solid #1a001f;
-    opacity: 0.7;
+/* ===== CARD GRANDE (spotify / timeline) ===== */
+.card-large iframe,
+.card-large img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
 }
 
-/* ===== RESPONSIVE ===== */
-@media (max-width: 768px) {
-    h1 { font-size: 3rem; }
+/* ===== BOTÓN ===== */
+.btn {
+    display: inline-block;
+    margin-top: 6px;
+    padding: 6px 10px;
+    border: 1px solid #c000ff;
+    font-size: 11px;
+    text-decoration: none;
+    color: white;
+}
+
+.btn:hover {
+    background: #c000ff;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 </style>
 </head>
 
 <body>
 
-<header>
-    <div class="hero-text">
-        <h1>ARACNE</h1>
-        <p>Banda de música
-~ Bienvenid@s a la tela de araña 🕷🕸
-~ Metal gótico/fantasía oscura 🖤🩷</p>
+<!-- Barra buscador -->
+<div class="search-bar">
+    <input type="text" placeholder="Aracne band">
+</div>
 
-        <div class="btns">
-            <a href="https://open.spotify.com/intl-es/artist/0wcTKtWvCYQv81bFrrhhn6?si=iSgyI57TT-SDxIv1HB2f3A" target="_blank">Spotify</a>
-            <a href="https://www.instagram.com/aracnebandoficial/" target="_blank">Instagram</a>
+<!-- GRID -->
+<div class="grid">
+
+    <!-- TIMELINE -->
+    <div class="card card-large">
+        <img src="images/photo_2026-04-25_02-42-32.jpg">
+        <div class="card-content">
+            <p class="card-title">El Ritual</p>
+            <p class="card-source">Historia de la banda</p>
         </div>
     </div>
-</header>
 
-<section class="section">
-    <h2>MIEMBROS</h2>
-    <div class="members">
-        <div class="card">
-            <img src="images/Noelia.png">
-            <h3>Cantante</h3>
-        </div>
-        
-        <div class="card">
-            <img src="images/Mateo.png">
-            <h3>Batería</h3>
-        </div>
-
-        <div class="card">
-            <img src="images/Cristian.png">
-            <h3>Guitarra</h3>
-        </div>
-
-        <div class="card">
-            <img src="images/Adán.png">
-            <h3>Bajo</h3>
-        </div>
-
-        <div class="card">
-            <img src="images/Elena.png">
-            <h3>Piano</h3>
-        </div>
-
-    </div>
-</section>
-
-<section class="section timeline">
-    <h2>EL RITUAL</h2>
-    <img src="images/photo_2026-04-25_02-42-32.jpg">
-</section>
-
-<section class="section">
-    <h2>SONIDO</h2>
-    <div class="spotify">
-        <iframe style="border-radius:12px"
-            src="https://open.spotify.com/embed/artist/0wcTKtWvCYQv81bFrrhhn6"
-            width="320" height="380"
-            frameborder="0"
-            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture">
+    <!-- SPOTIFY -->
+    <div class="card card-large">
+        <iframe src="https://open.spotify.com/embed/artist/0wcTKtWvCYQv81bFrrhhn6"
+        frameborder="0"
+        allow="autoplay; clipboard-write; encrypted-media; fullscreen">
         </iframe>
+        <div class="card-content">
+            <p class="card-title">Escuchar en Spotify</p>
+            <a class="btn" href="https://open.spotify.com/intl-es/artist/0wcTKtWvCYQv81bFrrhhn6" target="_blank">
+                Abrir
+            </a>
+        </div>
     </div>
-</section>
 
-<footer>
-    <p>ARACNE © 2026 — All rights reserved</p>
-</footer>
+    <!-- MERCH -->
+    <div class="card">
+        <img src="images/merch1.jpg">
+        <div class="card-content">
+            <p class="card-title">Camiseta ARACNE</p>
+            <p class="card-source">Merchandising</p>
+            <a class="btn" href="#">Comprar</a>
+        </div>
+    </div>
+
+    <div class="card">
+        <img src="images/merch2.jpg">
+        <div class="card-content">
+            <p class="card-title">Totebag Aracne</p>
+            <p class="card-source">Merchandising</p>
+            <a class="btn" href="#">Comprar</a>
+        </div>
+    </div>
+ <div class="card">
+        <img src="images/merch2.jpg">
+        <div class="card-content">
+            <p class="card-title">Púas Aracne</p>
+            <p class="card-source">Merchandising</p>
+            <a class="btn" href="#">Comprar</a>
+        </div>
+    </div>
+    <!-- CONTENIDO NORMAL -->
+    <div class="card">
+        <img src="images/Noelia.png">
+        <div class="card-content">
+            <p class="card-title">Cantante</p>
+            <p class="card-source">Noelia</p>
+        </div>
+    </div>
+
+    <div class="card">
+        <img src="images/Mateo.png">
+        <div class="card-content">
+            <p class="card-title">Batería</p>
+            <p class="card-source">Mateo</p>
+        </div>
+    </div>
+
+    <div class="card">
+        <img src="images/Cristian.png">
+        <div class="card-content">
+            <p class="card-title">Guitarra</p>
+            <p class="card-source">Cristian</p>
+        </div>
+    </div>
+
+    <div class="card">
+        <img src="images/Adán.png">
+        <div class="card-content">
+            <p class="card-title">Bajo</p>
+            <p class="card-source">Adán</p>
+        </div>
+    </div>
+
+</div>
 
 </body>
 </html>
