@@ -27,7 +27,7 @@
             overflow: hidden;
         }
 
-        /* NUEVO FONDO RESPONSIVE */
+        /* FONDO RESPONSIVE */
         .hero-bg {
             position: absolute;
             inset: 0;
@@ -124,8 +124,13 @@
             box-shadow: 0 0 20px #c000ff;
         }
 
+        /* 👥 IMÁGENES MIEMBROS (MEJORADO) */
         .card img {
             width: 100%;
+            height: 260px;
+            object-fit: cover;
+            object-position: center;
+            display: block;
             filter: grayscale(100%);
             transition: 0.4s;
         }
@@ -175,6 +180,18 @@
 
         @media (max-width: 768px) {
             h1 { font-size: 3rem; }
+
+            /* HERO */
+            .hero-bg img {
+                object-fit: contain;
+                background: #000;
+            }
+
+            /* MIEMBROS */
+            .card img {
+                height: 220px;
+                object-position: center top;
+            }
         }
     </style>
 </head>
@@ -213,27 +230,27 @@ Banda de música
 
         <div class="card">
             <img src="images/Noelia.png">
-            <h3>Cantante</h3>
+            <h3>Cantante - Noelia</h3>
         </div>
 
         <div class="card">
             <img src="images/Mateo.png">
-            <h3>Batería</h3>
+            <h3>Batería - Mateo</h3>
         </div>
 
         <div class="card">
             <img src="images/Cristian.png">
-            <h3>Guitarra</h3>
+            <h3>Guitarra - Cristian</h3>
         </div>
 
         <div class="card">
             <img src="images/Adán.png">
-            <h3>Bajo</h3>
+            <h3>Bajo - Adán</h3>
         </div>
 
         <div class="card">
             <img src="images/Elena.png">
-            <h3>Piano</h3>
+            <h3>Piano - Elena</h3>
         </div>
 
     </div>
