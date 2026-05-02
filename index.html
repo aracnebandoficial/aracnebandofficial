@@ -14,7 +14,6 @@
             overflow-x: hidden;
         }
 
-        /* ===== HERO ===== */
         header {
             height: 100vh;
             display: flex;
@@ -27,7 +26,6 @@
             overflow: hidden;
         }
 
-        /* FONDO RESPONSIVE */
         .hero-bg {
             position: absolute;
             inset: 0;
@@ -67,7 +65,6 @@
             white-space: pre-line;
         }
 
-        /* ===== BOTONES ===== */
         .btns {
             margin-top: 20px;
             z-index: 2;
@@ -89,10 +86,46 @@
             transform: scale(1.05);
         }
 
-        /* ===== SECCIONES ===== */
+        /* ===== SECCIONES CON GLOW ===== */
         .section {
             padding: 80px 20px;
             text-align: center;
+            border-top: 1px solid rgba(192, 0, 255, 0.4);
+            position: relative;
+        }
+
+        .section::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80%;
+            height: 1px;
+            background: #c000ff;
+            box-shadow:
+                0 0 5px #c000ff,
+                0 0 10px #c000ff,
+                0 0 20px #ff00ff,
+                0 0 40px #ff00ff;
+            opacity: 0.7;
+            animation: glowLine 2.5s infinite alternate;
+        }
+
+        @keyframes glowLine {
+            from {
+                opacity: 0.4;
+                box-shadow:
+                    0 0 5px #c000ff,
+                    0 0 10px #c000ff;
+            }
+            to {
+                opacity: 1;
+                box-shadow:
+                    0 0 10px #ff00ff,
+                    0 0 25px #ff00ff,
+                    0 0 50px #ff00ff;
+            }
         }
 
         .section h2 {
@@ -102,7 +135,6 @@
             margin-bottom: 40px;
         }
 
-        /* ===== GRID ===== */
         .members {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -124,7 +156,6 @@
             box-shadow: 0 0 20px #c000ff;
         }
 
-        /* 👥 IMÁGENES MIEMBROS */
         .card img,
         .card picture img {
             width: 100%;
@@ -140,7 +171,6 @@
             filter: grayscale(0%);
         }
 
-        /* ===== BOTÓN ===== */
         .buy-btn {
             display: inline-block;
             margin-top: 10px;
@@ -156,7 +186,6 @@
             box-shadow: 0 0 10px #ff00ff;
         }
 
-        /* ===== TIMELINE ===== */
         .timeline img {
             width: 90%;
             max-width: 900px;
@@ -164,13 +193,18 @@
             box-shadow: 0 0 25px #c000ff;
         }
 
-        /* ===== SPOTIFY ===== */
+        .timeline small {
+            display: block;
+            margin-top: 10px;
+            opacity: 0.5;
+            font-size: 0.8rem;
+        }
+
         .spotify {
             display: flex;
             justify-content: center;
         }
 
-        /* ===== FOOTER ===== */
         footer {
             padding: 30px;
             text-align: center;
@@ -199,8 +233,6 @@
 <body>
 
 <header>
-
-    <!-- FONDO RESPONSIVE -->
     <picture class="hero-bg">
         <source srcset="images/Banda-mobile.png" media="(max-width: 768px)">
         <source srcset="images/Banda-tablet.png" media="(max-width: 1024px)">
@@ -220,77 +252,30 @@ Banda de música
             <a href="https://www.instagram.com/aracnebandoficial/" target="_blank">Instagram</a>
         </div>
     </div>
-
 </header>
 
-<!-- MIEMBROS -->
 <section class="section">
     <h2>MIEMBROS</h2>
     <div class="members">
 
         <div class="card">
-            <img src="images/Noelia.png">
-            <h3>Noelia</h3>
-            <details>
-                <summary>Biografía</summary>
-                <p>Noelia es la voz que da vida a la banda. Con su timbre oscuro y potente, aporta la esencia gótica que define el sonido de la banda. Su presencia escénica y su pasión por la música la hacen única.</p>
-            </details>
-        </div>
-
-        <div class="card">
-            <img src="images/Mateo.png">
-            <h3>Mateo</h3>
-            <details>
-                <summary>Biografía</summary>
-                <p>Mateo es el batería. Su estilo único y su habilidad para crear ritmos intensos y envolventes son fundamentales para el sonido característico de la banda.</p>
-            </details>
-        </div>
-
-        <div class="card">
             <img src="images/Cristian.png">
-            <h3>Cristian</h3>
+            <h3>Tyler</h3>
             <details>
                 <summary>Biografía</summary>
-                <p>Cristian es el guitarrista. Su talento para crear melodías complejas y su capacidad para mezclar elementos del metal gótico con influencias más oscuras hacen que su contribución sea esencial en el sonido de la banda.</p>
-            </details>
-        </div>
-
-        <div class="card">
-
-            <picture>
-                <source srcset="images/Adán-mobile.png" media="(max-width: 768px)">
-                <img src="images/Adán.png" alt="Adán - Bajo">
-            </picture>
-
-            <h3>Adán</h3>
-
-            <details>
-                <summary>Biografía</summary>
-                <p>
-                    Adán es el bajista. Su presencia en el escenario y su habilidad para crear bases rítmicas sólidas son fundamentales para el sonido de la banda.
-                </p>
-            </details>
-        </div>
-
-        <div class="card">
-            <img src="images/Elena.png">
-            <h3>Elena</h3>
-            <details>
-                <summary>Biografía</summary>
-                <p>Elena es la pianista. Su habilidad para crear melodías emotivas y su capacidad para complementar el sonido de la banda con arreglos delicados hacen que su contribución sea esencial en el sonido de la banda.</p>
+                <p>Tyler es el guitarrista...</p>
             </details>
         </div>
 
     </div>
 </section>
 
-<!-- TIMELINE -->
 <section class="section timeline">
-    <h2>Línea del tiempo - Adán Pulido</h2>
+    <h2>Línea del tiempo</h2>
     <img src="images/photo_2026-04-25_02-42-32.jpg">
+    <small>Adán Pulido</small>
 </section>
 
-<!-- MERCH -->
 <section class="section">
     <h2>MERCHANDISING</h2>
 
@@ -298,51 +283,18 @@ Banda de música
         Próximamente disponible.  
         Todo el merchandising de ARACNE se realiza bajo pedido.
     </p>
+
+    <br>
+
     <p>Si te interesa alguna pieza, contáctanos directamente por Instagram 🕷🖤</p>
-
-    <div class="members">
-
-        <div class="card">
-            <h3>Camiseta</h3>
-            <p>Disponible por encargo</p>
-        </div>
-
-        <div class="card">
-            <h3>Totebag</h3>
-            <p>Disponible por encargo</p>
-        </div>
-
-        <div class="card">
-            <h3>Púas</h3>
-            <p>Disponible por encargo</p>
-        </div>
-
-    </div>
-
-    <div style="margin-top:30px;">
-        <a href="https://www.instagram.com/aracnebandoficial/" target="_blank" class="buy-btn">
-            Contactar por Instagram
-        </a>
-    </div>
 </section>
 
-<!-- SPOTIFY -->
 <section class="section">
     <h2>SONIDO</h2>
-    <div class="spotify">
-        <iframe
-            style="border-radius:12px"
-            src="https://open.spotify.com/embed/artist/0wcTKtWvCYQv81bFrrhhn6"
-            width="320"
-            height="380"
-            frameborder="0"
-            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture">
-        </iframe>
-    </div>
 </section>
 
 <footer>
-    <p>ARACNE © 2026 — Management by: Rosa Montalvo Yébenes</p>
+    <p>ARACNE © 2026</p>
 </footer>
 
 </body>
