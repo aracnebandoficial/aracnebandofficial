@@ -1,11 +1,20 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>ARACNE</title>
 
+    <!-- FUENTES -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Orbitron:wght@400;600&display=swap" rel="stylesheet">
+
     <style>
+
         body {
             margin: 0;
             background: #050505;
@@ -15,6 +24,7 @@
         }
 
         /* ===== HERO ===== */
+
         header {
             height: 100vh;
             display: flex;
@@ -22,12 +32,33 @@
             justify-content: center;
             align-items: center;
             text-align: center;
-            background: radial-gradient(circle at top, #1a001f, #000 70%);
+
+            background:
+                radial-gradient(circle at top, #1a001f, #000 70%);
+
             position: relative;
             overflow: hidden;
         }
 
-        /* FONDO RESPONSIVE */
+        /* OSCURECIDO CINEMÁTICO */
+
+        header::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+
+            background:
+                linear-gradient(
+                    to bottom,
+                    rgba(0,0,0,0.35),
+                    rgba(0,0,0,0.70)
+                );
+
+            z-index: 1;
+        }
+
+        /* ===== FONDO HERO ===== */
+
         .hero-bg {
             position: absolute;
             inset: 0;
@@ -35,104 +66,154 @@
         }
 
         .hero-bg img {
+
             width: 100%;
             height: 100%;
+
             object-fit: cover;
-            opacity: 0.35;
-            filter: brightness(0.5);
+            object-position: center center;
+
+            opacity: 0.55;
+
+            filter:
+                brightness(0.45)
+                contrast(1.1)
+                saturate(1.1);
+
+            transform: scale(1.02);
         }
 
-        h1 {
-            font-family: 'Cinzel', serif;
-            font-size: 5rem;
-            color: #c000ff;
-            text-shadow: 0 0 25px #ff00ff;
-            z-index: 2;
-            animation: glow 3s infinite alternate;
-        }
-
-        @keyframes glow {
-            from { text-shadow: 0 0 10px #a000ff; }
-            to   { text-shadow: 0 0 35px #ff00ff; }
-        }
+        /* ===== TEXTO HERO ===== */
 
         .hero-text {
             z-index: 2;
-            max-width: 600px;
+            max-width: 700px;
             position: relative;
+            padding: 20px;
         }
 
         .hero-text p {
-            opacity: 0.8;
+            opacity: 0.9;
             white-space: pre-line;
+            line-height: 1.7;
+            font-size: 1.05rem;
+
+            text-shadow:
+                0 0 10px rgba(0,0,0,0.9);
         }
 
         /* ===== BOTONES ===== */
+
         .btns {
-            margin-top: 20px;
+            margin-top: 25px;
             z-index: 2;
         }
 
         .btns a {
+
             margin: 10px;
             padding: 12px 22px;
+
             border: 1px solid #c000ff;
+
             color: #fff;
             text-decoration: none;
+
             transition: 0.3s;
+
             display: inline-block;
+
+            background: rgba(0,0,0,0.35);
+
+            backdrop-filter: blur(4px);
         }
 
         .btns a:hover {
+
             background: #c000ff;
-            box-shadow: 0 0 15px #ff00ff;
+
+            box-shadow:
+                0 0 15px #ff00ff;
+
             transform: scale(1.05);
         }
 
         /* ===== SECCIONES ===== */
+
         .section {
             padding: 80px 20px;
             text-align: center;
         }
 
         .section h2 {
+
             font-family: 'Cinzel', serif;
+
             font-size: 2.5rem;
+
             color: #c000ff;
+
             margin-bottom: 40px;
+
+            text-shadow:
+                0 0 15px rgba(255,0,255,0.4);
         }
 
         /* ===== GRID ===== */
+
         .members {
+
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+
+            grid-template-columns:
+                repeat(auto-fit, minmax(220px, 1fr));
+
             gap: 25px;
-            max-width: 1000px;
+
+            max-width: 1100px;
+
             margin: auto;
         }
 
+        /* ===== CARDS ===== */
+
         .card {
-            background: rgba(26, 0, 31, 0.7);
+
+            background:
+                rgba(26, 0, 31, 0.7);
+
             padding: 20px;
+
             border: 1px solid #c000ff;
+
             transition: 0.4s;
+
             backdrop-filter: blur(6px);
         }
 
         .card:hover {
+
             transform: translateY(-10px);
-            box-shadow: 0 0 20px #c000ff;
+
+            box-shadow:
+                0 0 20px #c000ff;
         }
 
-        /* 👥 IMÁGENES MIEMBROS */
+        /* ===== IMÁGENES ===== */
+
         .card img,
         .card picture img {
+
             width: 100%;
             height: 260px;
+
             object-fit: cover;
             object-position: center;
+
             display: block;
+
             filter: grayscale(100%);
+
             transition: 0.4s;
         }
 
@@ -141,156 +222,442 @@
         }
 
         /* ===== BOTÓN ===== */
+
         .buy-btn {
+
             display: inline-block;
+
             margin-top: 10px;
+
             padding: 10px 18px;
+
             border: 1px solid #c000ff;
+
             color: #fff;
+
             text-decoration: none;
+
             transition: 0.3s;
         }
 
         .buy-btn:hover {
+
             background: #c000ff;
-            box-shadow: 0 0 10px #ff00ff;
+
+            box-shadow:
+                0 0 10px #ff00ff;
         }
 
         /* ===== TIMELINE ===== */
+
         .timeline img {
+
             width: 90%;
             max-width: 900px;
+
             border: 2px solid #c000ff;
-            box-shadow: 0 0 25px #c000ff;
+
+            box-shadow:
+                0 0 25px #c000ff;
         }
 
         /* ===== SPOTIFY ===== */
+
         .spotify {
             display: flex;
             justify-content: center;
         }
 
         /* ===== FOOTER ===== */
+
         footer {
+
             padding: 30px;
+
             text-align: center;
+
             background: #000;
+
             border-top: 1px solid #1a001f;
+
             opacity: 0.7;
         }
 
+        /* ===== RESPONSIVE ===== */
+
         @media (max-width: 768px) {
-            h1 { font-size: 3rem; }
+
+            header {
+                height: 85vh;
+            }
+
+            .hero-text {
+                padding: 20px;
+            }
 
             .hero-bg img {
-                object-fit: contain;
-                background: #000;
+
+                object-fit: cover;
+                object-position: center center;
+
+                opacity: 0.5;
+            }
+
+            .hero-text p {
+                font-size: 0.95rem;
+            }
+
+            .btns a {
+
+                padding: 10px 16px;
+
+                font-size: 0.9rem;
             }
 
             .card img,
             .card picture img {
+
                 height: 220px;
+
                 object-position: center top;
             }
+
+            .section h2 {
+                font-size: 2rem;
+            }
         }
+
     </style>
 </head>
+
 <body>
-<header><!-- FONDO RESPONSIVE --> <picture class="hero-bg"> <source srcset="images/Banda-mobile.png" media="(max-width: 768px)"> <source srcset="images/Banda-tablet.png" media="(max-width: 1024px)"> <img src="images/Banda.png" alt="ARACNE"> </picture>
-<div class="hero-text">
-<h1>ARACNE</h1>
-<p>Banda de m&uacute;sica ~ Bienvenid@s a la tela de ara&ntilde;a 🕷🕸 ~ Metal g&oacute;tico/fantas&iacute;a oscura 🖤🩷</p>
-<div class="btns"><a href="https://open.spotify.com/intl-es/artist/0wcTKtWvCYQv81bFrrhhn6" target="_blank" rel="noopener">Spotify</a> <a href="https://www.instagram.com/aracnebandoficial/" target="_blank" rel="noopener">Instagram</a></div>
-</div>
-</header><!-- MIEMBROS -->
-<section class="section">
-<h2>MIEMBROS</h2>
-<div class="members">
-<div class="card"><img src="images/Noelia.png">
-<h3>Noelia</h3>
-<details>
-<summary>Biograf&iacute;a</summary>
-<p>Noelia es la voz que da vida a la banda. Con su timbre oscuro y potente, aporta la esencia g&oacute;tica que define el sonido de la banda. Su presencia esc&eacute;nica y su pasi&oacute;n por la m&uacute;sica la hacen &uacute;nica.</p>
-</details>
-</div>
-<div class="card"><img src="images/Mateo.png">
-<h3>Mateo</h3>
-<details>
-<summary>Biograf&iacute;a</summary>
-<p>Mateo es el bater&iacute;a. Su estilo &uacute;nico y su habilidad para crear ritmos intensos y envolventes son fundamentales para el sonido caracter&iacute;stico de la banda.</p>
-</details>
-</div>
-<div class="card"><img src="images/Cristian.png">
-<h3>Cristian</h3>
-<details>
-<summary>Biograf&iacute;a</summary>
-<p>Cristian es el guitarrista. Su talento para crear melod&iacute;as complejas y su capacidad para mezclar elementos del metal g&oacute;tico con influencias m&aacute;s oscuras hacen que su contribuci&oacute;n sea esencial en el sonido de la banda.</p>
-</details>
-</div>
-<div class="card"><picture> <source srcset="images/Ad&aacute;n-mobile.png" media="(max-width: 768px)"> <img src="images/Adán.png" alt="Ad&aacute;n - Bajo"> </picture>
-<h3>Ad&aacute;n</h3>
-<details>
-<summary>Biograf&iacute;a</summary>
-<p>Ad&aacute;n es el bajista. Su presencia en el escenario y su habilidad para crear bases r&iacute;tmicas s&oacute;lidas son fundamentales para el sonido de la banda.</p>
-</details>
-</div>
-<div class="card"><img src="images/Elena.png">
-<h3>Elena</h3>
-<details>
-<summary>Biograf&iacute;a</summary>
-<p>Elena es la pianista. Su habilidad para crear melod&iacute;as emotivas y su capacidad para complementar el sonido de la banda con arreglos delicados hacen que su contribuci&oacute;n sea esencial en el sonido de la banda.</p>
-</details>
-</div>
-</div>
-</section>
-<!-- TIMELINE -->
-<section class="section timeline">
-<h2>L&iacute;nea del tiempo - Ad&aacute;n Pulido</h2>
-<img src="images/photo_2026-04-25_02-42-32.jpg"></section>
-<!-- MERCH -->
-<section class="section">
-<h2>MERCHANDISING</h2>
-<p style="max-width: 600px; margin: auto; opacity: 0.8;">Pr&oacute;ximamente disponible. Todo el merchandising de ARACNE se realiza bajo pedido.</p>
-<p>Si te interesa alguna pieza, cont&aacute;ctanos directamente por Instagram 🕷🖤</p>
-<div class="members">
-<div class="card">
-<h3>Camiseta</h3>
-<p>Disponible por encargo</p>
-</div>
-<div class="card">
-<h3>Totebag</h3>
-<p>Disponible por encargo</p>
-</div>
-<div class="card">
-<h3>P&uacute;as</h3>
-<p>Disponible por encargo</p>
-</div>
-</div>
-<div style="margin-top: 30px;"><a href="https://www.instagram.com/aracnebandoficial/" target="_blank" class="buy-btn" rel="noopener"> Contactar por Instagram </a></div>
-</section>
-<!-- SPOTIFY -->
-<section class="section">
-<h2>SONIDO</h2>
-<div class="spotify"><iframe width="320" height="380" style="border-radius: 12px;" src="https://open.spotify.com/embed/artist/0wcTKtWvCYQv81bFrrhhn6" frameborder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture">
-        </iframe></div>
-</section>
-<section class="section">
-<h2>PR&Oacute;XIMOS EVENTOS</h2>
-<!-- EVENTOS --></section>
-<section class="section">
-<h2>Noticias</h2>
-<p>Pr&oacute;ximamente disponible. Para estar al tanto de todas las novedades, seguidnos en Instagram 🕷🖤</p>
-</section>
-<section class="section">
-<h2>CONTACTO</h2>
-<p>Para más información o consultas, puedes contactarnos a trav&eacute;s de nuestros canales oficiales:</p>
-<ul>
-<li><a href="https://www.instagram.com/aracnebandoficial/" target="_blank" rel="noopener">Instagram</a></li>
-<li><a href="https://open.spotify.com/intl-es/artist/0wcTKtWvCYQv81bFrrhhn6" target="_blank" rel="noopener">Spotify</a></li>
-</ul>
-</section>
-<footer>
-<p>ARACNE &copy; 2026 &mdash; Management by: Rosa Montalvo Y&eacute;benes</p>
-</footer>
+
+    <!-- HERO -->
+    <header>
+
+        <picture class="hero-bg">
+
+            <!-- MÓVIL -->
+            <source
+                srcset="images/Banner.jpeg"
+                media="(max-width: 768px)">
+
+            <!-- TABLET -->
+            <source
+                srcset="images/Banner.jpeg"
+                media="(max-width: 1200px)">
+
+            <!-- DESKTOP -->
+            <img
+                src="images/Banner.jpeg"
+                alt="ARACNE Banner">
+
+        </picture>
+
+        <div class="hero-text">
+
+            <p>
+Banda de música
+~ Bienvenid@s a la tela de araña 🕷🕸
+~ Metal gótico / fantasía oscura 🖤🩷
+            </p>
+
+            <div class="btns">
+
+                <a
+                    href="https://open.spotify.com/intl-es/artist/0wcTKtWvCYQv81bFrrhhn6"
+                    target="_blank">
+                    Spotify
+                </a>
+
+                <a
+                    href="https://www.instagram.com/aracnebandoficial/"
+                    target="_blank">
+                    Instagram
+                </a>
+
+            </div>
+
+        </div>
+
+    </header>
+
+    <!-- MIEMBROS -->
+    <section class="section">
+
+        <h2>MIEMBROS</h2>
+
+        <div class="members">
+
+            <div class="card">
+
+                <img src="images/Noelia.png">
+
+                <h3>Noelia</h3>
+
+                <details>
+
+                    <summary>Biografía</summary>
+
+                    <p>
+                        Noelia es la voz que da vida a la banda. Con su timbre oscuro y potente, aporta la esencia g&oacute;tica que define el sonido de la banda. Su presencia esc&eacute;nica y su pasi&oacute;n por la m&uacute;sica la hacen &uacute;nica.
+                    </p>
+
+                </details>
+
+            </div>
+
+            <div class="card">
+
+                <img src="images/Mateo.png">
+
+                <h3>Mateo</h3>
+
+                <details>
+
+                    <summary>Biografía</summary>
+
+                    <p>
+                        Mateo es el bater&iacute;a. Su estilo &uacute;nico y su habilidad para crear ritmos intensos y envolventes son fundamentales para el sonido caracter&iacute;stico de la banda.
+                    </p>
+
+                </details>
+
+            </div>
+
+            <div class="card">
+
+                <img src="images/Cristian.png">
+
+                <h3>Cristian</h3>
+
+                <details>
+
+                    <summary>Biografía</summary>
+
+                    <p>
+                        Cristian es el guitarrista. Su talento para crear melod&iacute;as complejas y su capacidad para mezclar elementos del metal g&oacute;tico con influencias m&aacute;s oscuras hacen que su contribuci&oacute;n sea esencial en el sonido de la banda.
+                    </p>
+
+                </details>
+
+            </div>
+
+            <div class="card">
+
+                <picture>
+
+                    <source
+                        srcset="images/Adán-mobile.png"
+                        media="(max-width: 768px)">
+
+                    <img
+                        src="images/Adán.png"
+                        alt="Adán">
+
+                </picture>
+
+                <h3>Adán</h3>
+
+                <details>
+
+                    <summary>Biografía</summary>
+
+                    <p>
+                        Adán es el bajista. Su presencia en el escenario y su habilidad para crear bases r&iacute;tmicas s&oacute;lidas son fundamentales para el sonido de la banda.
+                    </p>
+
+                </details>
+
+            </div>
+
+            <div class="card">
+
+                <img src="images/Elena.png">
+
+                <h3>Elena</h3>
+
+                <details>
+
+                    <summary>Biografía</summary>
+
+                    <p>
+                        Elena es la pianista. Su habilidad para crear melod&iacute;as emotivas y su capacidad para complementar el sonido de la banda con arreglos delicados hacen que su contribuci&oacute;n sea esencial en el sonido de la banda.
+                    </p>
+
+                </details>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- TIMELINE -->
+    <section class="section timeline">
+
+        <h2>Línea del tiempo - Adán Pulido</h2>
+
+        <img src="images/photo_2026-04-25_02-42-32.jpg">
+
+    </section>
+
+    <!-- MERCH -->
+    <section class="section">
+
+        <h2>MERCHANDISING</h2>
+
+        <p style="max-width:600px; margin:auto; opacity:0.8;">
+
+            Próximamente disponible.
+            Todo el merchandising de ARACNE se realiza bajo pedido.
+
+        </p>
+
+        <p>
+            Si te interesa alguna pieza,
+            contáctanos directamente por Instagram 🕷🖤
+        </p>
+
+        <div class="members">
+
+            <div class="card">
+
+                <h3>Camiseta</h3>
+
+                <p>Disponible por encargo</p>
+
+            </div>
+
+            <div class="card">
+
+                <h3>Totebag</h3>
+
+                <p>Disponible por encargo</p>
+
+            </div>
+
+            <div class="card">
+
+                <h3>Púas</h3>
+
+                <p>Disponible por encargo</p>
+
+            </div>
+
+        </div>
+
+        <div style="margin-top:30px;">
+
+            <a
+                href="https://www.instagram.com/aracnebandoficial/"
+                target="_blank"
+                class="buy-btn">
+
+                Contactar por Instagram
+
+            </a>
+
+        </div>
+
+    </section>
+
+    <!-- SPOTIFY -->
+    <section class="section">
+
+        <h2>SONIDO</h2>
+
+        <div class="spotify">
+
+            <iframe
+                style="border-radius:12px"
+                src="https://open.spotify.com/embed/artist/0wcTKtWvCYQv81bFrrhhn6"
+                width="320"
+                height="380"
+                frameborder="0"
+                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture">
+
+            </iframe>
+
+        </div>
+
+    </section>
+
+    <!-- EVENTOS -->
+    <section class="section">
+
+        <h2>PRÓXIMOS EVENTOS</h2>
+
+        <p>
+            OS ESPERAMOS EL 18 DE SEPTIEMBRE EN LA SALA HOLLANDER, SEVILLA 🕷🖤
+        </p>
+
+    </section>
+
+    <!-- NOTICIAS -->
+    <section class="section">
+
+        <h2>NOTICIAS</h2>
+
+        <p>
+            Próximamente disponible.
+            Para estar al tanto de todas las novedades,
+            seguidnos en Instagram 🕷🖤
+        </p>
+
+    </section>
+
+    <!-- CONTACTO -->
+    <section class="section">
+
+        <h2>CONTACTO</h2>
+
+        <p>
+            Para más información o consultas,
+            puedes contactarnos a través de nuestros canales oficiales:
+        </p>
+
+        <ul style="list-style:none; padding:0;">
+
+            <li style="margin:10px 0;">
+
+                <a
+                    href="https://www.instagram.com/aracnebandoficial/"
+                    target="_blank"
+                    style="color:#c000ff;">
+
+                    Instagram
+
+                </a>
+
+            </li>
+
+            <li style="margin:10px 0;">
+
+                <a
+                    href="https://open.spotify.com/intl-es/artist/0wcTKtWvCYQv81bFrrhhn6"
+                    target="_blank"
+                    style="color:#c000ff;">
+
+                    Spotify
+
+                </a>
+
+            </li>
+
+        </ul>
+
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+
+        <p>
+            ARACNE © 2026 — Management by:
+            Rosa Montalvo Yébenes
+        </p>
+
+    </footer>
+
 </body>
 </html>
