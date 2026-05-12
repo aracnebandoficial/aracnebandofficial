@@ -4,7 +4,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>ARACNE</title>
 
     <!-- FUENTES -->
@@ -27,37 +26,41 @@
 
         header {
             height: 100vh;
+
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            text-align: center;
 
-            background:
-                radial-gradient(circle at top, #1a001f, #000 70%);
+            text-align: center;
 
             position: relative;
             overflow: hidden;
+
+            background:
+                radial-gradient(circle at top, #1a001f, #000 70%);
         }
 
-        /* OSCURECIDO CINEMÁTICO */
+        /* OSCURECIDO SUAVE */
 
         header::after {
+
             content: "";
+
             position: absolute;
             inset: 0;
 
             background:
                 linear-gradient(
                     to bottom,
-                    rgba(0,0,0,0.35),
-                    rgba(0,0,0,0.70)
+                    rgba(0,0,0,0.10),
+                    rgba(0,0,0,0.40)
                 );
 
             z-index: 1;
         }
 
-        /* ===== FONDO HERO ===== */
+        /* ===== FONDO ===== */
 
         .hero-bg {
             position: absolute;
@@ -73,33 +76,40 @@
             object-fit: cover;
             object-position: center center;
 
-            opacity: 0.55;
+            opacity: 0.88;
 
             filter:
-                brightness(0.45)
-                contrast(1.1)
-                saturate(1.1);
+                brightness(0.9)
+                contrast(1.05)
+                saturate(1.05);
 
-            transform: scale(1.02);
+            transition: 0.4s;
         }
 
-        /* ===== TEXTO HERO ===== */
+        /* ===== HERO TEXT ===== */
 
         .hero-text {
+
             z-index: 2;
-            max-width: 700px;
             position: relative;
+
+            max-width: 700px;
+
             padding: 20px;
         }
 
         .hero-text p {
-            opacity: 0.9;
+
+            opacity: 0.95;
+
             white-space: pre-line;
+
             line-height: 1.7;
+
             font-size: 1.05rem;
 
             text-shadow:
-                0 0 10px rgba(0,0,0,0.9);
+                0 0 12px rgba(0,0,0,0.9);
         }
 
         /* ===== BOTONES ===== */
@@ -112,11 +122,13 @@
         .btns a {
 
             margin: 10px;
+
             padding: 12px 22px;
 
             border: 1px solid #c000ff;
 
             color: #fff;
+
             text-decoration: none;
 
             transition: 0.3s;
@@ -264,6 +276,7 @@
         /* ===== SPOTIFY ===== */
 
         .spotify {
+
             display: flex;
             justify-content: center;
         }
@@ -283,28 +296,70 @@
             opacity: 0.7;
         }
 
-        /* ===== RESPONSIVE ===== */
+        /* ===== TABLET ===== */
 
-        @media (max-width: 768px) {
+        @media (max-width: 1024px) {
 
             header {
-                height: 85vh;
-            }
-
-            .hero-text {
-                padding: 20px;
+                height: 78vh;
             }
 
             .hero-bg img {
 
-                object-fit: cover;
+                object-fit: contain;
+
+                background: #000;
+
                 object-position: center center;
 
-                opacity: 0.5;
+                opacity: 0.95;
+            }
+
+            .hero-text {
+                padding: 25px;
+            }
+        }
+
+        /* ===== MÓVIL ===== */
+
+        @media (max-width: 768px) {
+
+            header {
+
+                height: auto;
+                min-height: 75vh;
+
+                padding: 40px 0;
+            }
+
+            .hero-bg img {
+
+                width: 100%;
+                height: 100%;
+
+                object-fit: contain;
+
+                object-position: center top;
+
+                background: #000;
+
+                opacity: 0.95;
+            }
+
+            .hero-text {
+
+                width: 90%;
+
+                margin-top: 180px;
+
+                padding: 20px;
             }
 
             .hero-text p {
+
                 font-size: 0.95rem;
+
+                line-height: 1.6;
             }
 
             .btns a {
@@ -314,6 +369,10 @@
                 font-size: 0.9rem;
             }
 
+            .section h2 {
+                font-size: 2rem;
+            }
+
             .card img,
             .card picture img {
 
@@ -321,13 +380,26 @@
 
                 object-position: center top;
             }
-
-            .section h2 {
-                font-size: 2rem;
-            }
         }
+    /* ===== SUBTÍTULO TIMELINE ===== */
 
+.timeline-subtitle {
+
+    margin-top: -20px;
+    margin-bottom: 30px;
+
+    font-size: 1rem;
+
+    opacity: 0.7;
+
+    letter-spacing: 2px;
+
+    text-transform: uppercase;
+
+    color: #d9a3ff;
+}
     </style>
+
 </head>
 
 <body>
@@ -339,17 +411,17 @@
 
             <!-- MÓVIL -->
             <source
-                srcset="images/Banner.jpeg"
+                srcset="images/banner-aracne.jpg"
                 media="(max-width: 768px)">
 
             <!-- TABLET -->
             <source
-                srcset="images/Banner.jpeg"
+                srcset="images/banner-aracne.jpg"
                 media="(max-width: 1200px)">
 
             <!-- DESKTOP -->
             <img
-                src="images/Banner.jpeg"
+                src="images/banner-aracne.jpg"
                 alt="ARACNE Banner">
 
         </picture>
@@ -367,13 +439,17 @@ Banda de música
                 <a
                     href="https://open.spotify.com/intl-es/artist/0wcTKtWvCYQv81bFrrhhn6"
                     target="_blank">
+
                     Spotify
+
                 </a>
 
                 <a
                     href="https://www.instagram.com/aracnebandoficial/"
                     target="_blank">
+
                     Instagram
+
                 </a>
 
             </div>
@@ -496,11 +572,15 @@ Banda de música
     <!-- TIMELINE -->
     <section class="section timeline">
 
-        <h2>Línea del tiempo - Adán Pulido</h2>
+    <h2>Línea del tiempo</h2>
 
-        <img src="images/photo_2026-04-25_02-42-32.jpg">
+    <p class="timeline-subtitle">
+        Adán Pulido
+    </p>
 
-    </section>
+    <img src="images/photo_2026-04-25_02-42-32.jpg">
+
+</section>
 
     <!-- MERCH -->
     <section class="section">
@@ -508,10 +588,8 @@ Banda de música
         <h2>MERCHANDISING</h2>
 
         <p style="max-width:600px; margin:auto; opacity:0.8;">
-
             Próximamente disponible.
             Todo el merchandising de ARACNE se realiza bajo pedido.
-
         </p>
 
         <p>
@@ -589,7 +667,7 @@ Banda de música
         <h2>PRÓXIMOS EVENTOS</h2>
 
         <p>
-            OS ESPERAMOS EL 18 DE SEPTIEMBRE EN LA SALA HOLLANDER, SEVILLA 🕷🖤
+            Os esperamos el día 18 de septiembre de 2026 en la sala Hollander, en Sevilla, ¡no os lo podéis perder! 🕷🖤
         </p>
 
     </section>
