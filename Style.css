@@ -382,3 +382,41 @@
 
     color: #d9a3ff;
 }
+/* ===== NAVBAR ===== */
+
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+
+    padding: 20px 0;
+
+    background: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(8px);
+
+    border-bottom: 1px solid #c000ff;
+
+    z-index: 1000;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+
+    font-family: 'Orbitron', sans-serif;
+
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: #c000ff;
+
+    text-shadow:
+        0 0 10px #c000ff;
+}
